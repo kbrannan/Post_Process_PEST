@@ -66,8 +66,10 @@ df_dowq1['Hour'] = df_dowq1['Hour'].astype(str)
 df_dowq1['Hour'] = df_dowq1['Hour'].astype(int)
 list(df_dowq1)
 ## make this a function that returns the hourly min, ave, and max for a reach
-df_dowq1.groupby(['Reach', 'Hour'])['Dissolved Oygen'].agg('min').reset_index(inplace=True)
 agg_funcs = dict(Min='min', Ave='mean', Max='max')
 junk = df_dowq1.groupby(['Reach', 'Hour'])['Dissolved Oygen'].agg(agg_funcs)
 junk.reset_index(inplace=True)
 junk
+
+df_agg = tsagg(df_dowq1, 'Dissolved Oygen')
+df_agg
