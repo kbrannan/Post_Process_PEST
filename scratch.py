@@ -66,5 +66,5 @@ df_dowq1 = df_dowq1.loc[df_dowq1['Reach'].isin(reaches)] # subset rows for data 
 df_dowq1['Hour'] = df_dowq1['Time'].astype(int) # create a new column that has the hour only of the time
 df_dowq1['Hour'] = df_dowq1['Hour'].astype(str)
 df_dowq1['Hour'] = df_dowq1['Hour'].astype(int)
-df_agg = tsagg(df_dowq1, 'Dissolved Oygen')
+df_agg = pfp.tsagg(df_dowq1, 'Dissolved Oygen')
 df_agg
