@@ -101,3 +101,13 @@ def makedicttable(tab_names, tab_rows, n_rows):
     tab_end.append(n_rows)
     dic_tab_names = dict(zip(tab_names, zip(tab_str, tab_end)))
     return dic_tab_names
+
+# aggregates time-series by the hour using min, mean, and max functions
+def tsagg(df, wq_par):
+    df['Hour'] = df['Time'].astype(int)
+    df['Hour'] = df['Hour'].astype(str)
+    df['Hour'] = df['Hour'].astype(int)
+    agg_funcs = dict(Min='min', Ave='mean', Max='max')
+    df_agg = df.groupby(['Reach', 'Hour'])[wq_par].agg(agg_funcs)
+    df_agg.reset_index(inplace=True)
+    return df_agg
