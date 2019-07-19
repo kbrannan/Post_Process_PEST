@@ -63,14 +63,8 @@ str_table_name = 'Diel water quality in the main channel (part 1 of 2)'
 reaches = (5, 6, 8) # get output for these reaches
 df_dowq1 = pfp.makedf(content, str_table_name, dict_tables)
 df_dowq1 = df_dowq1.loc[df_dowq1['Reach'].isin(reaches)] # subset rows for data from reaches
-df_dowq1['Hour'] = df_dowq1['Time'].astype(int)
+df_dowq1['Hour'] = df_dowq1['Time'].astype(int) # create a new column that has the hour only of the time
 df_dowq1['Hour'] = df_dowq1['Hour'].astype(str)
 df_dowq1['Hour'] = df_dowq1['Hour'].astype(int)
-## make this a function that returns the hourly min, ave, and max for a reach
-agg_funcs = dict(Min='min', Ave='mean', Max='max')
-junk = df_dowq1.groupby(['Reach', 'Hour'])['Dissolved Oygen'].agg(agg_funcs)
-junk.reset_index(inplace=True)
-junk
-
 df_agg = tsagg(df_dowq1, 'Dissolved Oygen')
 df_agg
