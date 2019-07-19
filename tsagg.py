@@ -1,3 +1,4 @@
+# aggregates time-series by the hour using min, mean, and max functions
 def tsagg(df, wq_par):
     df['Hour'] = df['Time'].astype(int)
     df['Hour'] = df['Hour'].astype(str)
