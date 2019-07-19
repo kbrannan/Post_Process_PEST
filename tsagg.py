@@ -5,5 +5,5 @@ def tsagg(df, wq_par):
     agg_funcs = dict(Min='min', Ave='mean', Max='max')
     df_agg = df.groupby(['Reach', 'Hour'])[wq_par].agg(agg_funcs)
     df_agg.reset_index(inplace=True)
-    return(df_agg)
+    return df_agg
 
