@@ -1,14 +1,8 @@
 import re
 
-line = 'l1 [Flow05]14:29'
-
-re.sub('^.*\[','', line).split(']')
-f = './qual2kw_files/model.ins'
-
-d = get_modelin(f)
-d
+# reads the model.ins file to get the obs names and formart in a disctionary
 def get_modelin(fn):
-    d = {}
+    d = {} # dictionary containing the obs name and the boundaries in the line
     with open(fn) as f:
         next(f) # skip the first line because it's not necessary for this action
         for line in f:
