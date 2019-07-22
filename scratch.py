@@ -6,7 +6,7 @@ str_file_q2k = 'UY_do.out'
 str_file_ins = 'model.ins'
 
 # get model output info from model.ins file
-junk = pfp.get_modelin(str_path_out + '/' + str_file_q2k)
+df_ins = pfp.get_modelin(str_path_out + '/' + str_file_ins)
 
 ## get file and information for the QUAL2kw output
 content = pfp.getoutfile(str_path_out + '/' + str_file_q2k) # need to get rid of '\n' form end of lines
@@ -22,7 +22,7 @@ df_flow = pfp.makedf(content, str_table_name, dict_tables)
 ## reach info, this table uses downstream dtance, not reach number
 ## flow05 flow for Reach 5
 ## Reach 5, downstream distanc is 16.2
-flow05 = df_flow.loc[df_flow['Downstream distance'] == 16.2, 'Flow']
+df_ins.loc[df_ins['Name'] == 'Flow05', 'vals'] = df_flow.loc[df_flow['Downstream distance'] == 16.2, 'Flow'].iat[0]
 ## flow08 flow for Reach 8
 ## Reach 8, downstream distanc is 0
 flow08 = df_flow.loc[df_flow['Downstream distance'] == 0, 'Flow']
