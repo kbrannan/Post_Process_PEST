@@ -3,6 +3,10 @@ import Postprocess_for_PEST as pfp
 # local variables
 str_path_out = './qual2kw_files'
 str_file_q2k = 'UY_do.out'
+str_file_ins = 'model.ins'
+
+# get model output info from model.ins file
+junk = pfp.get_modelin(str_path_out + '/' + str_file_q2k)
 
 ## get file and information for the QUAL2kw output
 content = pfp.getoutfile(str_path_out + '/' + str_file_q2k) # need to get rid of '\n' form end of lines
