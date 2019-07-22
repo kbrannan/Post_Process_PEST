@@ -111,3 +111,16 @@ def tsagg(df, wq_par):
     df_agg = df.groupby(['Reach', 'Hour'])[wq_par].agg(agg_funcs)
     df_agg.reset_index(inplace=True)
     return df_agg
+
+# reads the model.ins file to get the obs names, formart, and -1 for vals in a data frame
+def get_modelin(fn):
+    d = {} # dictionary containing the obs name and the boundaries in the line
+    with open(fn) as f:
+        next(f) # skip the first line because it's not necessary for this action
+        for line in f:
+            (key, val) = re.sub('(^.*\[)|( .*$\n)','', line).split(']') # mung the line and retirn ons name and boundaries
+            d[key] = val
+    df = pd.DataFrame(d.items(), columns=('Name','cols')) # make data frame from dictionary
+    df['vals'] = -1.0 # add col for vals with defaults of -1.0
+    return(df)
+
