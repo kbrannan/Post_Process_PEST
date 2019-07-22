@@ -72,3 +72,6 @@ df_dowq1['Hour'] = df_dowq1['Hour'].astype(str)
 df_dowq1['Hour'] = df_dowq1['Hour'].astype(int)
 df_agg = pfp.tsagg(df_dowq1, 'Dissolved Oygen')
 df_agg
+## make a function that takes the name of the do obs and splits it into the reach, hour, and stat
+## like domin0615 to reach = 06, hour = 15, and stat = min
+df_ins.tail()
