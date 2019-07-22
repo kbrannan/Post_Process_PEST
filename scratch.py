@@ -1,7 +1,7 @@
 import Postprocess_for_PEST as pfp
 
 # local variables
-str_path_out = 'C:/Users/kbranna/local_repos/qual2kw_output/qual2kw_files'
+str_path_out = './qual2kw_files'
 str_file_q2k = 'UY_do.out'
 
 ## get file and information for the QUAL2kw output
