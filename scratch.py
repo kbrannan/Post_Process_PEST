@@ -25,42 +25,42 @@ df_flow = pfp.makedf(content, str_table_name, dict_tables)
 df_ins.loc[df_ins['Name'] == 'Flow05', 'vals'] = df_flow.loc[df_flow['Downstream distance'] == 16.2, 'Flow'].iat[0]
 ## flow08 flow for Reach 8
 ## Reach 8, downstream distanc is 0
-flow08 = df_flow.loc[df_flow['Downstream distance'] == 0, 'Flow']
+df_ins.loc[df_ins['Name'] == 'Flow08', 'vals'] = df_flow.loc[df_flow['Downstream distance'] == 0, 'Flow'].iat[0]
 
 ## obs group fcob
 str_table_name = 'Daily average water quality summary for main channel (part 1 of 2)'
 df_dawq1 = pfp.makedf(content, str_table_name, dict_tables)
-fcob08 = df_dawq1.loc[df_dawq1['Reach'] == 8, 'Fast CBOD']
-fcob06 = df_dawq1.loc[df_dawq1['Reach'] == 6, 'Fast CBOD']
-fcob05 = df_dawq1.loc[df_dawq1['Reach'] == 5, 'Fast CBOD']
+df_ins.loc[df_ins['Name'] == 'fcob08', 'vals'] = df_dawq1.loc[df_dawq1['Reach'] == 8, 'Fast CBOD'].iat[0]
+df_ins.loc[df_ins['Name'] == 'fcob06', 'vals'] = df_dawq1.loc[df_dawq1['Reach'] == 6, 'Fast CBOD'].iat[0]
+df_ins.loc[df_ins['Name'] == 'fcob05', 'vals'] = df_dawq1.loc[df_dawq1['Reach'] == 5, 'Fast CBOD'].iat[0]
 
 ## obs group orgn
 ##str_table_name = 'Daily average water quality summary for main channel (part 1 of 2)'
 ##df_dawq1 = mdf.makedf(content, str_table_name, dict_tables)
-orgn08 = df_dawq1.loc[df_dawq1['Reach'] == 8, 'Organic N']
-orgn06 = df_dawq1.loc[df_dawq1['Reach'] == 6, 'Organic N']
-orgn05 = df_dawq1.loc[df_dawq1['Reach'] == 5, 'Organic N']
+df_ins.loc[df_ins['Name'] == 'orgn08', 'vals'] = df_dawq1.loc[df_dawq1['Reach'] == 8, 'Organic N'].iat[0]
+df_ins.loc[df_ins['Name'] == 'orgn06', 'vals'] = df_dawq1.loc[df_dawq1['Reach'] == 6, 'Organic N'].iat[0]
+df_ins.loc[df_ins['Name'] == 'orgn05', 'vals'] = df_dawq1.loc[df_dawq1['Reach'] == 5, 'Organic N'].iat[0]
 
 ## obs group nh4
 ##str_table_name = 'Daily average water quality summary for main channel (part 1 of 2)'
 ##df_dawq1 = mdf.makedf(content, str_table_name, dict_tables)
-nh408 = df_dawq1.loc[df_dawq1['Reach'] == 8, 'NH4-N']
-nh406 = df_dawq1.loc[df_dawq1['Reach'] == 6, 'NH4-N']
-nh405 = df_dawq1.loc[df_dawq1['Reach'] == 5, 'NH4-N']
+df_ins.loc[df_ins['Name'] == 'nh408', 'vals'] = df_dawq1.loc[df_dawq1['Reach'] == 8, 'NH4-N'].iat[0]
+df_ins.loc[df_ins['Name'] == 'nh406', 'vals'] = df_dawq1.loc[df_dawq1['Reach'] == 6, 'NH4-N'].iat[0]
+df_ins.loc[df_ins['Name'] == 'nh405', 'vals'] = df_dawq1.loc[df_dawq1['Reach'] == 5, 'NH4-N'].iat[0]
 
 ## obs group no3
 ##str_table_name = 'Daily average water quality summary for main channel (part 1 of 2)'
 ##df_dawq1 = mdf.makedf(content, str_table_name, dict_tables)
-n0308 = df_dawq1.loc[df_dawq1['Reach'] == 8, 'NO3+NO2-N']
-n0306 = df_dawq1.loc[df_dawq1['Reach'] == 6, 'NO3+NO2-N']
-no305 = df_dawq1.loc[df_dawq1['Reach'] == 5, 'NO3+NO2-N']
+df_ins.loc[df_ins['Name'] == 'no308', 'vals'] = df_dawq1.loc[df_dawq1['Reach'] == 8, 'NO3+NO2-N'].iat[0]
+df_ins.loc[df_ins['Name'] == 'no306', 'vals'] = df_dawq1.loc[df_dawq1['Reach'] == 6, 'NO3+NO2-N'].iat[0]
+df_ins.loc[df_ins['Name'] == 'no305', 'vals'] = df_dawq1.loc[df_dawq1['Reach'] == 5, 'NO3+NO2-N'].iat[0]
 
 ## obs group orgp
 ##str_table_name = 'Daily average water quality summary for main channel (part 1 of 2)'
 ##df_dawq1 = mdf.makedf(content, str_table_name, dict_tables)
-orgp08 = df_dawq1.loc[df_dawq1['Reach'] == 8, 'Organic P']
-orgp06 = df_dawq1.loc[df_dawq1['Reach'] == 6, 'Organic P']
-orgp05 = df_dawq1.loc[df_dawq1['Reach'] == 5, 'Organic P']
+df_ins.loc[df_ins['Name'] == 'orgp08', 'vals'] = df_dawq1.loc[df_dawq1['Reach'] == 8, 'Organic P'].iat[0]
+df_ins.loc[df_ins['Name'] == 'orgp06', 'vals'] = df_dawq1.loc[df_dawq1['Reach'] == 6, 'Organic P'].iat[0]
+df_ins.loc[df_ins['Name'] == 'orgp05', 'vals'] = df_dawq1.loc[df_dawq1['Reach'] == 5, 'Organic P'].iat[0]
 
 ## obs groups doamin, doave, domax 
 str_table_name = 'Diel water quality in the main channel (part 1 of 2)'
