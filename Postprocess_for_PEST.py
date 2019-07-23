@@ -126,6 +126,6 @@ def get_modelin(fn):
 
 ## gets value from aggregated dataframe for the reach, hour, and stat of the cur obs name from df_ins
 def get_value(cur, df_agg):
-    val = float(df_agg[(df_agg['Reach'] == int(cur[5:7])) & (df_agg['Hour'] == int(cur[7:9]))][cur[2:5].title()])
+    val = float(df_agg[(df_agg['Reach'] == int(cur[-4:-2])) & (df_agg['Hour'] == int(cur[-2:]))][cur[-7:-4].title()])
     return(val)
 
