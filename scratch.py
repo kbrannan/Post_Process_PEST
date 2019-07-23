@@ -62,16 +62,16 @@ df_ins.loc[df_ins['Name'] == 'orgp08', 'vals'] = df_dawq1.loc[df_dawq1['Reach'] 
 df_ins.loc[df_ins['Name'] == 'orgp06', 'vals'] = df_dawq1.loc[df_dawq1['Reach'] == 6, 'Organic P'].iat[0]
 df_ins.loc[df_ins['Name'] == 'orgp05', 'vals'] = df_dawq1.loc[df_dawq1['Reach'] == 5, 'Organic P'].iat[0]
 
-## obs groups doamin, doave, domax 
+## get the time-series data and aggregate on hour for min, ave, and max
 str_table_name = 'Diel water quality in the main channel (part 1 of 2)'
 reaches = (5, 6, 8) # get output for these reaches
-df_dowq1 = pfp.makedf(content, str_table_name, dict_tables)
-df_dowq1 = df_dowq1.loc[df_dowq1['Reach'].isin(reaches)] # subset rows for data from reaches
-df_dowq1['Hour'] = df_dowq1['Time'].astype(int) # create a new column that has the hour only of the time
-df_dowq1['Hour'] = df_dowq1['Hour'].astype(str)
-df_dowq1['Hour'] = df_dowq1['Hour'].astype(int)
-df_agg = pfp.tsagg(df_dowq1, 'Dissolved Oygen')
+df_tswq1 = pfp.makedf(content, str_table_name, dict_tables)
+df_tswq1 = df_tswq1.loc[df_tswq1['Reach'].isin(reaches)] # subset rows for data from reaches
+df_tswq1['Hour'] = df_tswq1['Time'].astype(int) # create a new column that has the hour only of the time
+df_tswq1['Hour'] = df_tswq1['Hour'].astype(str)
+df_tswq1['Hour'] = df_tswq1['Hour'].astype(int)
 ## populate the hourly obs values for the DO time-series
+df_agg = pfp.tsagg(df_tswq1, 'Dissolved Oygen')
 par = 'doave' # average
 sub = list(df_ins.loc[df_ins['Name'].str.contains(par), 'Name'])
 for cur in sub:
@@ -84,4 +84,35 @@ par = 'domax' # maximum
 sub = list(df_ins.loc[df_ins['Name'].str.contains(par), 'Name'])
 for cur in sub:
     df_ins.loc[df_ins['Name'] == cur, 'vals'] = pfp.get_value(cur, df_agg)
+
+## populate the hourly obs values for the Temperature time-series
+df_agg = pfp.tsagg(df_tswq1, 'Water temperature')
+par = 'tempave' # average
+sub = list(df_ins.loc[df_ins['Name'].str.contains(par), 'Name'])
+for cur in sub:
+    df_ins.loc[df_ins['Name'] == cur, 'vals'] = pfp.get_value(cur, df_agg)
+par = 'tempmin' # minimum
+sub = list(df_ins.loc[df_ins['Name'].str.contains(par), 'Name'])
+for cur in sub:
+    df_ins.loc[df_ins['Name'] == cur, 'vals'] = pfp.get_value(cur, df_agg)
+par = 'tempmax' # maximum
+sub = list(df_ins.loc[df_ins['Name'].str.contains(par), 'Name'])
+for cur in sub:
+    df_ins.loc[df_ins['Name'] == cur, 'vals'] = pfp.get_value(cur, df_agg)
+
+## populate the hourly obs values for the pH time-series
+df_agg = pfp.tsagg(df_tswq1, 'pH')
+par = 'pHave' # average
+sub = list(df_ins.loc[df_ins['Name'].str.contains(par), 'Name'])
+for cur in sub:
+    df_ins.loc[df_ins['Name'] == cur, 'vals'] = pfp.get_value(cur, df_agg)
+par = 'pHmin' # minimum
+sub = list(df_ins.loc[df_ins['Name'].str.contains(par), 'Name'])
+for cur in sub:
+    df_ins.loc[df_ins['Name'] == cur, 'vals'] = pfp.get_value(cur, df_agg)
+par = 'pHmax' # maximum
+sub = list(df_ins.loc[df_ins['Name'].str.contains(par), 'Name'])
+for cur in sub:
+    df_ins.loc[df_ins['Name'] == cur, 'vals'] = pfp.get_value(cur, df_agg)
+
 
