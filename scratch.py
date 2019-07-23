@@ -89,8 +89,13 @@ for cur in sub:
 df_agg = pfp.tsagg(df_tswq1, 'Water temperature')
 par = 'tempave' # average
 sub = list(df_ins.loc[df_ins['Name'].str.contains(par), 'Name'])
+sub[14][-7:-4]
+int(sub[14][-2:])
+int(sub[14][-4:-2])
+pfp.get_value(sub[14], df_agg)
 for cur in sub:
     df_ins.loc[df_ins['Name'] == cur, 'vals'] = pfp.get_value(cur, df_agg)
+
 par = 'tempmin' # minimum
 sub = list(df_ins.loc[df_ins['Name'].str.contains(par), 'Name'])
 for cur in sub:
