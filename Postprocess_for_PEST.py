@@ -130,3 +130,8 @@ def get_value(cur, df_agg):
     val = float(df_agg[(df_agg['Reach'] == int(cur[-4:-2])) & (df_agg['Hour'] == int(cur[-2:]))][cur[-7:-4].title()])
     return(val)
 
+# prints number in E to width defined by column boundaries
+def print_num(cols, num):
+    out = '{:+.{prec}E}'.format(num, prec=cols[1] - cols[0] - 7)
+    return(out)
+
