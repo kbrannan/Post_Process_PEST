@@ -71,7 +71,17 @@ df_dowq1['Hour'] = df_dowq1['Time'].astype(int) # create a new column that has t
 df_dowq1['Hour'] = df_dowq1['Hour'].astype(str)
 df_dowq1['Hour'] = df_dowq1['Hour'].astype(int)
 df_agg = pfp.tsagg(df_dowq1, 'Dissolved Oygen')
-df_agg
-## make a function that takes the name of the do obs and splits it into the reach, hour, and stat
-## like domin0615 to reach = 06, hour = 15, and stat = min
-df_ins.tail()
+## populate the hourly obs values for the DO time-series
+par = 'doave' # average
+sub = list(df_ins.loc[df_ins['Name'].str.contains(par), 'Name'])
+for cur in sub:
+    df_ins.loc[df_ins['Name'] == cur, 'vals'] = pfp.get_value(cur, df_agg)
+par = 'domin' # minimum
+sub = list(df_ins.loc[df_ins['Name'].str.contains(par), 'Name'])
+for cur in sub:
+    df_ins.loc[df_ins['Name'] == cur, 'vals'] = pfp.get_value(cur, df_agg)
+par = 'domax' # maximum
+sub = list(df_ins.loc[df_ins['Name'].str.contains(par), 'Name'])
+for cur in sub:
+    df_ins.loc[df_ins['Name'] == cur, 'vals'] = pfp.get_value(cur, df_agg)
+
