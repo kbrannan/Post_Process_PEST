@@ -122,6 +122,7 @@ def get_modelin(fn):
             d[key] = val
     df = pd.DataFrame(d.items(), columns=('Name','cols')) # make data frame from dictionary
     df['vals'] = -1.0 # add col for vals with defaults of -1.0
+    df['cols'] = df['cols'].str.strip() # get rid of any whitespaces that could have snuck in
     return(df)
 
 ## gets value from aggregated dataframe for the reach, hour, and stat of the cur obs name from df_ins
