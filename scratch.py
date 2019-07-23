@@ -121,3 +121,4 @@ for cur in sub:
     df_ins.loc[df_ins['Name'] == cur, 'vals'] = pfp.get_value(cur, df_agg)
 
 
+## function that wites line of obs name and value from df_ins for the column locations and width in cols
