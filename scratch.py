@@ -4,6 +4,7 @@ import Postprocess_for_PEST as pfp
 str_path_out = './qual2kw_files'
 str_file_q2k = 'UY_do.out'
 str_file_ins = 'model.ins'
+str_file_out = 'model.out'
 
 # get model output info from model.ins file
 df_ins = pfp.get_modelin(str_path_out + '/' + str_file_ins)
@@ -120,5 +121,8 @@ sub = list(df_ins.loc[df_ins['Name'].str.contains(par), 'Name'])
 for cur in sub:
     df_ins.loc[df_ins['Name'] == cur, 'vals'] = pfp.get_value(cur, df_agg)
 
-
-## function that wites line of obs name and value from df_ins for the column locations and width in cols
+## Write df_ins to model.out file
+f = open(str_path_out + '/' + str_file_out, 'w')
+for index, row in df_ins.iterrows():
+    f.write(pfp.create_ln(row) + '\n')
+f.close()
