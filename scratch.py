@@ -1,3 +1,7 @@
+# add location of library Postprocess_for PEST to system path
+import sys
+sys.path.insert(0, 'C:/Users/kbranna/local_repos/qual2kw_output/pest')
+#import Postprocess_for_PEST as pfp
 import Postprocess_for_PEST as pfp
 
 # local variables
