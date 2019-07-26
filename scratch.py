@@ -67,6 +67,13 @@ df_ins.loc[df_ins['Name'] == 'orgp08', 'vals'] = df_dawq1.loc[df_dawq1['Reach'] 
 df_ins.loc[df_ins['Name'] == 'orgp06', 'vals'] = df_dawq1.loc[df_dawq1['Reach'] == 6, 'Organic P'].iat[0]
 df_ins.loc[df_ins['Name'] == 'orgp05', 'vals'] = df_dawq1.loc[df_dawq1['Reach'] == 5, 'Organic P'].iat[0]
 
+## obs group inorgp
+##str_table_name = 'Daily average water quality summary for main channel (part 1 of 2)'
+##df_dawq1 = mdf.makedf(content, str_table_name, dict_tables)
+df_ins.loc[df_ins['Name'] == 'inorgp08', 'vals'] = df_dawq1.loc[df_dawq1['Reach'] == 8, 'Inorganic P'].iat[0]
+df_ins.loc[df_ins['Name'] == 'inorgp06', 'vals'] = df_dawq1.loc[df_dawq1['Reach'] == 6, 'Inorganic P'].iat[0]
+df_ins.loc[df_ins['Name'] == 'inorgp05', 'vals'] = df_dawq1.loc[df_dawq1['Reach'] == 5, 'Inorganic P'].iat[0]
+
 ## get the time-series data and aggregate on hour for min, ave, and max
 str_table_name = 'Diel water quality in the main channel (part 1 of 2)'
 reaches = (5, 6, 8) # get output for these reaches
