@@ -2,3 +2,5 @@ __\pycache**
 \.vscode**
 tempCodeRunnerFile.py
 **.pyc
+
+qual2kw_files/model.obf
