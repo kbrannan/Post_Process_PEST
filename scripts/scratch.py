@@ -5,7 +5,7 @@ sys.path.insert(0, 'C:/Users/kbranna/local_repos/qual2kw_output/pest')
 import Postprocess_for_PEST as pfp
 
 # local variables
-str_path_out = './qual2kw_files'
+str_path_out = 'C:/Users/kbranna/local_repos/qual2kw_output/qual2kw_files'
 str_file_q2k = 'UY_do.out'
 str_file_ins = 'model.ins'
 str_file_out = 'model.out'
@@ -133,7 +133,7 @@ for cur in sub:
     df_ins.loc[df_ins['Name'] == cur, 'vals'] = pfp.get_value(cur, df_agg)
 
 ## Write df_ins to model.out file
-f = open(str_path_out + '/' + str_file_out, 'w')
+f = open(file = str_path_out + '/' + str_file_out, mode = 'w')
 for index, row in df_ins.iterrows():
     f.write(pfp.create_ln(row) + '\n')
 f.close()
