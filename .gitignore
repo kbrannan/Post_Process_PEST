@@ -3,5 +3,5 @@ __\pycache**
 tempCodeRunnerFile.py
 **.pyc
 .vs/**
-\qual2kw_files\**
-\scripts\**
+qual2kw_files/**
+scripts/**
