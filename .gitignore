@@ -3,5 +3,5 @@ __\pycache**
 tempCodeRunnerFile.py
 **.pyc
 .vs/**
-qual2kw_files/model.obf
-qual2kw_files/model.out
+\qual2kw_files\**
+\scripts\**
