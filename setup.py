@@ -3,8 +3,7 @@ from setuptools import setup
 setup(
     # Needed to silence warnings (and to be a worthwhile package)
     # Needed for dependencies
-    install_requires = ['re>2.1', 'pandas==0.24'],
-    install_requires = ['django-pipeline==1.1.22', 'south>=0.7']
+    install_requires = ['re>2.1', 'pandas>0.24'],
     # The license can be anything you like
     license='MIT',
     description='An example of a python package from pre-existing code',
