@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     # Needed to silence warnings (and to be a worthwhile package)
     # Needed for dependencies
-    install_requires=['math', 're', 'pandas'],
+    install_requires=['re==2.1.1', 'pandas==0.24.2'],
     # The license can be anything you like
     license='MIT',
     description='An example of a python package from pre-existing code',
